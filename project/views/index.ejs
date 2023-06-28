@@ -3,95 +3,121 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazon Scraper</title>
+    <title>Ecommerce Product Analyser</title>
     <style>
       /* Style for page background */
-      body {
-        background-color: #F7F7F7;
-        font-family: Arial, sans-serif;
-      }
-      
-      /* Style for title */
-      h1 {
-        font-size: 48px;
-        text-align: center;
-        margin-top: 50px;
-        margin-bottom: 50px;
-        text-shadow: 2px 2px 5px #888888;
-      }
-      
-      /* Style for form */
-      form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: relative;
-      }
-      
-      /* Style for label */
-      label {
-        font-size: 24px;
-        margin-bottom: 20px;
-      }
-      
-      /* Style for input */
-      input {
-        padding: 10px;
-        border-radius: 5px;
-        border: none;
-        box-shadow: 2px 2px 5px #888888;
-        margin-bottom: 20px;
-        width: 80%;
-        max-width: 500px;
-        font-size: 18px;
-      }
-      
-      /* Style for submit button */
-      button[type="submit"] {
-        background-color: #0066FF;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        font-size: 18px;
-        cursor: pointer;
-        box-shadow: 2px 2px 5px #888888;
-        transition: all 0.2s ease-in-out;
-      }
-      
-      /* Hover effect for submit button */
-      button[type="submit"]:hover {
-        background-color: #0044CC;
-      }
-      
-      /* Style for loading spinner */
-      .spinner {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border: 16px solid #f3f3f3;
-        border-top: 16px solid #3498db;
-        border-radius: 50%;
-        width: 120px;
-        height: 120px;
-        animation: spin 2s linear infinite;
-      }
-      
-      /* Animation for loading spinner */
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-      
-      /* Hide loading spinner by default */
-      .spinner.hidden {
-        display: none;
-      }
+body {
+  background-color: #f5f5f5;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Style for title */
+h1 {
+  font-size: 48px;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-shadow: 2px 2px 5px #888888;
+  color: #333;
+}
+
+/* Style for form */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Style for label */
+label {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+/* Style for input */
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 2px 2px 5px #ddd;
+  margin-bottom: 20px;
+  width: 80%;
+  max-width: 500px;
+  font-size: 18px;
+}
+
+/* Style for submit button */
+button[type="submit"] {
+  background-color: #0066FF;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px #888888;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover effect for submit button */
+button[type="submit"]:hover {
+  background-color: #0044CC;
+}
+
+/* Style for loading spinner */
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 8px solid rgba(255, 255, 255, 0.8);
+  border-top: 8px solid #0066FF;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+/* Animation for loading spinner */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Hide loading spinner by default */
+.spinner.hidden {
+  display: none;
+}
+
+/* Media query for responsive layout */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 36px;
+  }
+  label {
+    font-size: 20px;
+  }
+  input {
+    width: 90%;
+  }
+  button[type="submit"] {
+    padding: 10px 20px;
+  }
+  .spinner {
+    border-width: 6px;
+    width: 30px;
+    height: 30px;
+  }
+}
+
     </style>
   </head>
   <body>
-    <h1>Amazon Scraper</h1>
+    <h1>Ecommerce Product Analyser </h1>
     <form id="form" action="/result">
       <label for="url">Product URL:</label>
       <input type="text" name="url" id="url" required>
