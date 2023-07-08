@@ -1,5 +1,5 @@
 {
-    "executablePath":"/usr/bin/google-chrome-stable",
+    "executablePath":"C:/Program Files/Google/Chrome/Application",
     "useDataDir": "--user-data-dir=/home/ubuntu/.config/google-chrome/Default",
     "headless": true
 }
