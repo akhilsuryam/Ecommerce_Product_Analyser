@@ -52,7 +52,14 @@ app.get('/result', async (req, res) => {
     await page.waitForSelector('#imgTagWrapperId img', { timeout: 60000 });
 
     // Get the URL of the image
-    const imageUrl = await page.$eval('#imgTagWrapperId img', (img) => img.src);
+    let imageUrl;
+    try {
+      imageUrl = await page.$eval('#imgTagWrapperId img', (img) => img.src);
+      
+    } catch (error) {
+      const imageUrl = await page.$eval('#main-image-container img', (img) => img.src);
+      
+    }
 
     // Download the image
     const viewSource = await page.goto(imageUrl);
